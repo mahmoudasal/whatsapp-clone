@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'navigation/app_routes.dart';
+import 'models/chat_model.dart';
+import 'models/call_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Load data from JSON files
-  // await ChatModel.loadChats();
-  // await CallModel.loadCalls();
+  await ChatModel.loadChats();
+  await CallModel.loadCalls();
 
   runApp(const MyApp());
 }

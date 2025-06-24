@@ -56,10 +56,19 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/chats_PP/
     - assets/data/
+    - assets/chats_PP/Ellipse 36.png
+    - assets/chats_PP/Ellipse 37.png
+    - assets/chats_PP/Ellipse 38.png
+    - assets/chats_PP/Ellipse 39.png
+    - assets/chats_PP/Ellipse 40.png
+    - assets/chats_PP/Ellipse 41.png
+    - assets/chats_PP/Ellipse 42.png
+    - assets/chats_PP/Ellipse 43.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

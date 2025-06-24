@@ -34,9 +34,9 @@ This project is a feature-rich WhatsApp clone that recreates the elegant iOS sty
       <td align="center"><strong>Chat Detail</strong></td>
     </tr>
     <tr>
-      <td><img src="screenshots/chats_screen.png" width="220" /></td>
-      <td><img src="screenshots/calls_screen.png" width="220" /></td>
-      <td><img src="screenshots/chat_detail.png" width="220" /></td>
+      <td><img src="screenshots/calls_screen.jpg" width="220" /></td>
+      <td><img src="screenshots/chats_screen.jpg" width="220" /></td>
+      <td><img src="screenshots/chat_detail.jpg" width="220" /></td>
     </tr>
   </table>
 </div>

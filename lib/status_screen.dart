@@ -79,68 +79,72 @@ class _StatusScreenState extends State<StatusScreen> {
           child: Container(height: 1, color: const Color(0xFFE0E0E0)),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ChatSearchBar(onSearch: filterStatuses),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ChatSearchBar(onSearch: filterStatuses),
 
-          // My Status
-          StatusListItem(status: myStatus, isMyStatus: true),
-          const SectionDivider(indent: 80),
+            // My Status
+            StatusListItem(status: myStatus, isMyStatus: true),
+            const SectionDivider(indent: 80),
 
-          // Recent Updates
-          if (recentUpdates.isNotEmpty) ...[
-            const Padding(
-              padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
-              child: Text(
-                'RECENT UPDATES',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
+            // Recent Updates
+            if (recentUpdates.isNotEmpty) ...[
+              const Padding(
+                padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
+                child: Text(
+                  'RECENT UPDATES',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
-            ...recentUpdates
-                .map(
-                  (status) => Column(
-                    children: [
-                      StatusListItem(status: status),
-                      if (status != recentUpdates.last)
-                        const SectionDivider(indent: 80),
-                    ],
-                  ),
-                )
-                .toList(),
-            const SectionDivider(),
-          ],
+              ...recentUpdates
+                  .map(
+                    (status) => Column(
+                      children: [
+                        StatusListItem(status: status),
+                        if (status != recentUpdates.last)
+                          const SectionDivider(indent: 80),
+                      ],
+                    ),
+                  )
+                  .toList(),
+              const SectionDivider(),
+            ],
 
-          // Viewed Updates
-          if (viewedUpdates.isNotEmpty) ...[
-            const Padding(
-              padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
-              child: Text(
-                'VIEWED UPDATES',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
+            // Viewed Updates
+            if (viewedUpdates.isNotEmpty) ...[
+              const Padding(
+                padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
+                child: Text(
+                  'VIEWED UPDATES',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
-            ...viewedUpdates
-                .map(
-                  (status) => Column(
-                    children: [
-                      StatusListItem(status: status),
-                      if (status != viewedUpdates.last)
-                        const SectionDivider(indent: 80),
-                    ],
-                  ),
-                )
-                .toList(),
+              ...viewedUpdates
+                  .map(
+                    (status) => Column(
+                      children: [
+                        StatusListItem(status: status),
+                        if (status != viewedUpdates.last)
+                          const SectionDivider(indent: 80),
+                      ],
+                    ),
+                  )
+                  .toList(),
+            ],
+            // Add padding at the bottom to ensure content doesn't get hidden behind FAB
+            const SizedBox(height: 100),
           ],
-        ],
+        ),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
