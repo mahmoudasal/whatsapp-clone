@@ -56,7 +56,7 @@ class MessageBubble extends StatelessWidget {
                         ? CupertinoIcons.check_mark_circled_solid
                         : CupertinoIcons.check_mark,
                     size: 12,
-                    color: message.isRead ? Colors.blue : Colors.grey[600],
+                    color: message.isRead ? Colors.green : Colors.grey[600],
                   ),
                 ],
               ],

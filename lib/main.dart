@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'main_navigation.dart';
 import 'navigation/app_routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Load data from JSON files
+  // await ChatModel.loadChats();
+  // await CallModel.loadCalls();
+
   runApp(const MyApp());
 }
 

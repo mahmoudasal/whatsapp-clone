@@ -13,7 +13,7 @@ class StatusSection extends StatelessWidget {
         children: [
           const Icon(
             CupertinoIcons.exclamationmark_circle,
-            color: Colors.blue,
+            color: Colors.green,
             size: 20,
           ),
           const SizedBox(width: 8),
@@ -28,7 +28,7 @@ class StatusSection extends StatelessWidget {
                   ),
                   TextSpan(
                     text: 'Learn more',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Colors.green),
                   ),
                 ],
               ),

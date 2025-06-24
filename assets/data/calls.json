@@ -1,0 +1,60 @@
+{
+  "calls": [
+    {
+      "name": "John Doe",
+      "time": "Today, 11:45 AM",
+      "avatarAsset": "assets/chats_PP/Ellipse 36.png",
+      "isOutgoing": false,
+      "isMissed": false,
+      "isVideo": true
+    },
+    {
+      "name": "Sarah Smith",
+      "time": "Today, 10:30 AM",
+      "avatarAsset": "assets/chats_PP/Ellipse 37.png",
+      "isOutgoing": true,
+      "isMissed": true,
+      "isVideo": false
+    },
+    {
+      "name": "Mike Johnson",
+      "time": "Yesterday, 4:15 PM",
+      "avatarAsset": "assets/chats_PP/Ellipse 38.png",
+      "isOutgoing": false,
+      "isMissed": true,
+      "isVideo": false
+    },
+    {
+      "name": "Emily Wilson",
+      "time": "Yesterday, 2:30 PM",
+      "avatarAsset": "assets/chats_PP/Ellipse 39.png",
+      "isOutgoing": true,
+      "isMissed": false,
+      "isVideo": true
+    },
+    {
+      "name": "David Brown",
+      "time": "06/23/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 40.png",
+      "isOutgoing": false,
+      "isMissed": false,
+      "isVideo": false
+    },
+    {
+      "name": "Jennifer Taylor",
+      "time": "06/22/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 41.png",
+      "isOutgoing": true,
+      "isMissed": false,
+      "isVideo": false
+    },
+    {
+      "name": "Family Group",
+      "time": "06/21/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 42.png",
+      "isOutgoing": true,
+      "isMissed": false,
+      "isVideo": true
+    }
+  ]
+}

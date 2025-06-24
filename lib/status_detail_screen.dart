@@ -118,7 +118,7 @@ class _StatusDetailScreenState extends State<StatusDetailScreen> {
                   Container(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.blue,
+                      color: Colors.green,
                     ),
                     child: IconButton(
                       icon: const Icon(Icons.send, color: Colors.white),

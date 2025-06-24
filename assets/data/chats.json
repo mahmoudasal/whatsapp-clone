@@ -1,0 +1,68 @@
+{
+  "chats": [
+    {
+      "name": "John Doe",
+      "message": "Hey, how are you doing?",
+      "time": "11:45 AM",
+      "avatarAsset": "assets/chats_PP/Ellipse 36.png",
+      "isRead": true,
+      "unreadCount": 0
+    },
+    {
+      "name": "Sarah Smith",
+      "message": "Can we meet tomorrow?",
+      "time": "10:30 AM",
+      "avatarAsset": "assets/chats_PP/Ellipse 37.png",
+      "isRead": false,
+      "unreadCount": 3
+    },
+    {
+      "name": "Mike Johnson",
+      "message": "I sent you the files",
+      "time": "Yesterday",
+      "avatarAsset": "assets/chats_PP/Ellipse 38.png",
+      "isRead": true,
+      "unreadCount": 0
+    },
+    {
+      "name": "Emily Wilson",
+      "message": "Thanks for your help!",
+      "time": "Yesterday",
+      "avatarAsset": "assets/chats_PP/Ellipse 39.png",
+      "isRead": false,
+      "unreadCount": 1
+    },
+    {
+      "name": "David Brown",
+      "message": "Let me know when you arrive",
+      "time": "06/22/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 40.png",
+      "isRead": true,
+      "unreadCount": 0
+    },
+    {
+      "name": "Jennifer Taylor",
+      "message": "The meeting is confirmed",
+      "time": "06/21/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 41.png",
+      "isRead": true,
+      "unreadCount": 0
+    },
+    {
+      "name": "Family Group",
+      "message": "Mom: We need to plan for the weekend",
+      "time": "06/20/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 42.png",
+      "isRead": true,
+      "unreadCount": 0
+    },
+    {
+      "name": "Work Team",
+      "message": "Alex: Don't forget the deadline!",
+      "time": "06/19/25",
+      "avatarAsset": "assets/chats_PP/Ellipse 43.png",
+      "isRead": false,
+      "unreadCount": 5
+    }
+  ]
+}

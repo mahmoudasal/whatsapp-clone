@@ -55,7 +55,7 @@ class _NewChatScreenState extends State<NewChatScreen> {
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.blue),
+          icon: const Icon(Icons.arrow_back, color: Colors.green),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -89,7 +89,7 @@ class _NewChatScreenState extends State<NewChatScreen> {
                 return ListTile(
                   leading: CircleAvatar(
                     radius: 24,
-                    backgroundImage: NetworkImage(contact.avatarUrl),
+                    backgroundImage: AssetImage(contact.avatarAsset),
                   ),
                   title: Text(
                     contact.name,
@@ -111,7 +111,7 @@ class _NewChatScreenState extends State<NewChatScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         heroTag: "new_chat_fab",
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         child: const Icon(Icons.group_add, color: Colors.white),
         onPressed: () {
           // Handle creating a new group

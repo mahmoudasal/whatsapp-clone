@@ -29,7 +29,7 @@ class _CallDetailScreenState extends State<CallDetailScreen> {
               children: [
                 CircleAvatar(
                   radius: 70,
-                  backgroundImage: NetworkImage(widget.call.avatarUrl),
+                  backgroundImage: AssetImage(widget.call.avatarAsset),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -83,7 +83,7 @@ class _CallDetailScreenState extends State<CallDetailScreen> {
                         _isSpeakerOn
                             ? CupertinoIcons.speaker_2
                             : CupertinoIcons.speaker_1,
-                        color: _isSpeakerOn ? Colors.blue : Colors.white,
+                        color: _isSpeakerOn ? Colors.green : Colors.white,
                         size: 30,
                       ),
                       onPressed: () {
@@ -98,7 +98,7 @@ class _CallDetailScreenState extends State<CallDetailScreen> {
                           _isVideoOn
                               ? CupertinoIcons.video_camera
                               : CupertinoIcons.video_camera_solid,
-                          color: _isVideoOn ? Colors.blue : Colors.white,
+                          color: _isVideoOn ? Colors.green : Colors.white,
                           size: 30,
                         ),
                         onPressed: () {

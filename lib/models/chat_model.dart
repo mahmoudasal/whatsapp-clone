@@ -1,8 +1,11 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
 class ChatModel {
   final String name;
   final String message;
   final String time;
-  final String avatarUrl;
+  final String avatarAsset;
   final bool isRead;
   final int unreadCount;
 
@@ -10,71 +13,55 @@ class ChatModel {
     required this.name,
     required this.message,
     required this.time,
-    required this.avatarUrl,
+    required this.avatarAsset,
     this.isRead = true,
     this.unreadCount = 0,
   });
 
-  // Sample data for demonstration
-  static List<ChatModel> sampleChats = [
-    ChatModel(
-      name: 'John Doe',
-      message: 'Hey, how are you doing?',
-      time: '11:45 AM',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
-      isRead: true,
-    ),
-    ChatModel(
-      name: 'Sarah Smith',
-      message: 'Can we meet tomorrow?',
-      time: '10:30 AM',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
-      isRead: false,
-      unreadCount: 3,
-    ),
-    ChatModel(
-      name: 'Mike Johnson',
-      message: 'I sent you the files',
-      time: 'Yesterday',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
-      isRead: true,
-    ),
-    ChatModel(
-      name: 'Emily Wilson',
-      message: 'Thanks for your help!',
-      time: 'Yesterday',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/4.jpg',
-      isRead: false,
-      unreadCount: 1,
-    ),
-    ChatModel(
-      name: 'David Brown',
-      message: 'Let me know when you arrive',
-      time: '06/22/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
-      isRead: true,
-    ),
-    ChatModel(
-      name: 'Jennifer Taylor',
-      message: 'The meeting is confirmed',
-      time: '06/21/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/6.jpg',
-      isRead: true,
-    ),
-    ChatModel(
-      name: 'Family Group',
-      message: 'Mom: We need to plan for the weekend',
-      time: '06/20/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/7.jpg',
-      isRead: true,
-    ),
-    ChatModel(
-      name: 'Work Team',
-      message: 'Alex: Don\'t forget the deadline!',
-      time: '06/19/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/8.jpg',
-      isRead: false,
-      unreadCount: 5,
-    ),
-  ];
+  static List<ChatModel> sampleChats = [];
+
+  // static Future<void> loadChats() async {
+  //   if (sampleChats.isNotEmpty) return;
+
+  //   try {
+  //     final String jsonString = await rootBundle.loadString(
+  //       'assets/data/chats.json',
+  //     );
+  //     final Map<String, dynamic> jsonData = json.decode(jsonString);
+  //     final List<dynamic> chatsData = jsonData['chats'];
+
+  //     sampleChats = chatsData
+  //         .map(
+  //           (chatData) => ChatModel(
+  //             name: chatData['name'],
+  //             message: chatData['message'],
+  //             time: chatData['time'],
+  //             avatarAsset: chatData['avatarAsset'],
+  //             isRead: chatData['isRead'],
+  //             unreadCount: chatData['unreadCount'],
+  //           ),
+  //         )
+  //         .toList();
+  //   } catch (e) {
+  //     print('Error loading chats: $e');
+  //     // Fallback to sample data if JSON loading fails
+  //     sampleChats = [
+  //       ChatModel(
+  //         name: 'John Doe',
+  //         message: 'Hey, how are you doing?',
+  //         time: '11:45 AM',
+  //         avatarAsset: 'assets/chats_PP/Ellipse 36.png',
+  //         isRead: true,
+  //       ),
+  //       ChatModel(
+  //         name: 'Sarah Smith',
+  //         message: 'Can we meet tomorrow?',
+  //         time: '10:30 AM',
+  //         avatarAsset: 'assets/chats_PP/Ellipse 37.png',
+  //         isRead: false,
+  //         unreadCount: 3,
+  //       ),
+  //     ];
+  //   }
+  // }
 }

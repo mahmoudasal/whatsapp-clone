@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'models/chat_model.dart';
 import 'models/message_model.dart';
 import 'widgets/message_bubble.dart';
+import 'navigation/app_routes.dart';
 
 class ChatDetailScreen extends StatefulWidget {
   final ChatModel chat;
@@ -87,12 +88,12 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(width: 6),
-              const Icon(CupertinoIcons.back, color: Colors.blue, size: 22),
+              const Icon(CupertinoIcons.back, color: Colors.green, size: 22),
               const SizedBox(width: 2),
               Flexible(
                 child: Text(
                   'Chats',
-                  style: TextStyle(color: Colors.blue, fontSize: 16),
+                  style: TextStyle(color: Colors.green, fontSize: 16),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
@@ -104,7 +105,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
           children: [
             CircleAvatar(
               radius: 16,
-              backgroundImage: NetworkImage(widget.chat.avatarUrl),
+              backgroundImage: AssetImage(widget.chat.avatarAsset),
             ),
             const SizedBox(width: 8),
             Flexible(
@@ -122,12 +123,21 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(CupertinoIcons.video_camera, color: Colors.blue),
+            icon: const Icon(CupertinoIcons.video_camera, color: Colors.green),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(CupertinoIcons.phone, color: Colors.blue),
+            icon: const Icon(CupertinoIcons.phone, color: Colors.green),
             onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(CupertinoIcons.info, color: Colors.green),
+            onPressed: () {
+              NavigationService.navigateTo(
+                AppRoutes.contactInfo,
+                arguments: widget.chat,
+              );
+            },
           ),
         ],
       ),
@@ -174,7 +184,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             child: Row(
               children: [
                 IconButton(
-                  icon: const Icon(CupertinoIcons.camera, color: Colors.blue),
+                  icon: const Icon(CupertinoIcons.camera, color: Colors.green),
                   onPressed: () {},
                 ),
                 Expanded(
@@ -195,13 +205,13 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 ),
                 const SizedBox(width: 8),
                 IconButton(
-                  icon: const Icon(CupertinoIcons.mic, color: Colors.blue),
+                  icon: const Icon(CupertinoIcons.mic, color: Colors.green),
                   onPressed: () {},
                 ),
                 IconButton(
                   icon: const Icon(
                     CupertinoIcons.arrow_up_circle_fill,
-                    color: Colors.blue,
+                    color: Colors.green,
                     size: 28,
                   ),
                   onPressed: _sendMessage,

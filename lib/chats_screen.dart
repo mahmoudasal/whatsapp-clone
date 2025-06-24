@@ -5,12 +5,10 @@ import 'models/search_history_model.dart';
 import 'navigation/app_routes.dart';
 import 'utils/debouncer.dart';
 import 'widgets/archived_chats_item.dart';
-import 'widgets/broadcast_list_item.dart';
-import 'widgets/chats_app_bar.dart';
-import 'widgets/chats_list.dart';
+import 'chat_widget.dart';
 import 'widgets/search_bar.dart';
-import 'widgets/section_divider.dart';
-import 'widgets/status_section.dart';
+
+// Using NavigationService from app_routes.dart
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});
@@ -72,34 +70,166 @@ class _ChatsScreenState extends State<ChatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const ChatsAppBar(),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ChatSearchBar(onSearch: filterChats),
-          ),
-          if (_isSearching && _searchHistory.searchHistory.isNotEmpty)
-            _buildSearchHistory(),
-          if (!_isSearching) ...[
-            const ArchivedChatsItem(count: 3),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: BroadcastListItem(),
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              floating: true,
+              pinned: true,
+              snap: true,
+              elevation: 0,
+              backgroundColor: Colors.white,
+              expandedHeight: 200.0,
+              stretch: true,
+              leadingWidth: 80,
+              leading: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      // Handle edit button tap
+                    },
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(CupertinoIcons.ellipsis),
+                    ),
+                  ),
+                ),
+              ),
+              actions: [
+                IconButton(
+                  icon: const Icon(
+                    CupertinoIcons.camera,
+                    color: Colors.green,
+                    size: 24,
+                  ),
+                  onPressed: () {
+                    // Handle camera button tap
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(
+                    CupertinoIcons.square_pencil,
+                    color: Colors.green,
+                    size: 24,
+                  ),
+                  onPressed: () {
+                    // Handle new message button tap
+                  },
+                ),
+                const SizedBox(width: 4),
+              ],
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: const EdgeInsets.only(left: 16.0, bottom: 90.0),
+                title: const Text(
+                  'Chats',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+                expandedTitleScale: 1.5,
+                collapseMode: CollapseMode.parallax,
+              ),
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(100),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0),
+                  child: Column(
+                    children: [
+                      ChatSearchBar(onSearch: filterChats),
+                      if (!_isSearching)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                _buildFilterChip('All', true),
+                                const SizedBox(width: 8),
+                                _buildFilterChip('Unread', false),
+                                const SizedBox(width: 8),
+                                _buildFilterChip('Favourites', false),
+                                const SizedBox(width: 8),
+                                _buildFilterChip('Groups', false),
+                                const SizedBox(width: 8),
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[100],
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    Icons.add,
+                                    size: 20,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
             ),
-            const SectionDivider(),
+          ];
+        },
+        body: CustomScrollView(
+          slivers: [
+            if (!_isSearching)
+              const SliverToBoxAdapter(child: ArchivedChatsItem(count: 3)),
+            if (_isSearching && _searchHistory.searchHistory.isNotEmpty)
+              SliverToBoxAdapter(child: _buildSearchHistory()),
+            SliverList.builder(
+              itemCount: filteredChats.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    ChatWidget(chat: filteredChats[index]),
+                    if (index < filteredChats.length - 1)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 80),
+                        child: Container(height: 0.5, color: Colors.grey[300]),
+                      ),
+                  ],
+                );
+              },
+            ),
           ],
-          Expanded(child: ChatsList(chats: filteredChats)),
-          if (!_isSearching) const StatusSection(),
-        ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         heroTag: "chats_fab",
-        backgroundColor: Colors.blue,
-        child: const Icon(CupertinoIcons.pencil, color: Colors.white),
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.add, color: Colors.white),
         onPressed: () {
-          Navigator.pushNamed(context, AppRoutes.newChat);
+          NavigationService.navigateTo(AppRoutes.newChat);
         },
+      ),
+    );
+  }
+
+  Widget _buildFilterChip(String label, bool isSelected) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: isSelected ? Colors.green : Colors.grey[200],
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: isSelected ? Colors.white : Colors.black,
+          fontSize: 14,
+        ),
       ),
     );
   }
@@ -130,7 +260,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   },
                   child: const Text(
                     'Clear All',
-                    style: TextStyle(fontSize: 14, color: Colors.blue),
+                    style: TextStyle(fontSize: 14, color: Colors.green),
                   ),
                 ),
             ],

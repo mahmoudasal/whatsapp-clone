@@ -9,15 +9,16 @@ class ChatSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
       child: CupertinoSearchTextField(
-        placeholder: 'Search',
+        placeholder: 'Ask Meta Ai or Search',
         prefixIcon: const Icon(CupertinoIcons.search, color: Colors.grey),
         style: const TextStyle(color: Colors.black87, fontSize: 16),
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.grey[100],
         onChanged: onSearch,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
         borderRadius: BorderRadius.circular(10),
+        placeholderStyle: const TextStyle(color: Colors.grey, fontSize: 16),
       ),
     );
   }

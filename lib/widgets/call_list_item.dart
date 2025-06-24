@@ -14,7 +14,7 @@ class CallListItem extends StatelessWidget {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       leading: CircleAvatar(
         radius: 24,
-        backgroundImage: NetworkImage(call.avatarUrl),
+        backgroundImage: AssetImage(call.avatarAsset),
       ),
       title: Text(
         call.name,
@@ -39,7 +39,7 @@ class CallListItem extends StatelessWidget {
       trailing: IconButton(
         icon: Icon(
           call.isVideo ? CupertinoIcons.video_camera : CupertinoIcons.phone,
-          color: Colors.blue,
+          color: Colors.green,
         ),
         onPressed: () {
           Navigator.pushNamed(context, AppRoutes.callDetail, arguments: call);

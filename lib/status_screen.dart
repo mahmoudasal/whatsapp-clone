@@ -57,7 +57,7 @@ class _StatusScreenState extends State<StatusScreen> {
               child: const Text(
                 'Privacy',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.green,
                   fontSize: 17,
                   fontWeight: FontWeight.w400,
                 ),
@@ -149,13 +149,13 @@ class _StatusScreenState extends State<StatusScreen> {
             heroTag: 'status_text',
             mini: true,
             backgroundColor: Colors.grey[200],
-            child: const Icon(CupertinoIcons.pencil, color: Colors.blue),
+            child: const Icon(CupertinoIcons.pencil, color: Colors.green),
             onPressed: () {},
           ),
           const SizedBox(height: 16),
           FloatingActionButton(
             heroTag: 'status_camera',
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.green,
             child: const Icon(CupertinoIcons.camera, color: Colors.white),
             onPressed: () {},
           ),

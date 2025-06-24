@@ -39,7 +39,7 @@ class StatusListItem extends StatelessWidget {
       subtitle: Text(
         status.time,
         style: TextStyle(
-          color: isMyStatus ? Colors.blue : Colors.grey,
+          color: isMyStatus ? Colors.green : Colors.grey,
           fontSize: 14,
         ),
       ),

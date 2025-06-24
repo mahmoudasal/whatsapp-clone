@@ -74,7 +74,7 @@ class _VoiceMessageRecorderState extends State<VoiceMessageRecorder> {
     if (!_isRecording) {
       return GestureDetector(
         onLongPress: _startRecording,
-        child: const Icon(CupertinoIcons.mic, color: Colors.blue, size: 24),
+        child: const Icon(CupertinoIcons.mic, color: Colors.green, size: 24),
       );
     }
 
@@ -117,7 +117,7 @@ class _VoiceMessageRecorderState extends State<VoiceMessageRecorder> {
                       child: Icon(
                         CupertinoIcons.lock,
                         color: _dragOffset < -(_lockThreshold / 2)
-                            ? Colors.blue
+                            ? Colors.green
                             : Colors.grey,
                         size: 16,
                       ),

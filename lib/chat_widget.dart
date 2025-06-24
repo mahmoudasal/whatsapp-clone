@@ -7,7 +7,6 @@ class ChatWidget extends StatelessWidget {
   final ChatModel chat;
 
   const ChatWidget({super.key, required this.chat});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +15,9 @@ class ChatWidget extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         leading: CircleAvatar(
           radius: 24,
-          backgroundImage: NetworkImage(chat.avatarUrl),
+          backgroundImage: AssetImage(chat.avatarAsset),
+          // Add a pinned image effect if the chat is pinned
+          foregroundColor: Colors.transparent,
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,7 +84,7 @@ class ChatWidget extends StatelessWidget {
           ),
         ),
         onTap: () {
-          Navigator.pushNamed(context, AppRoutes.chatDetail, arguments: chat);
+          NavigationService.navigateTo(AppRoutes.chatDetail, arguments: chat);
         },
       ),
     );

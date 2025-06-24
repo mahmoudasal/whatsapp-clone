@@ -1,7 +1,10 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
 class CallModel {
   final String name;
   final String time;
-  final String avatarUrl;
+  final String avatarAsset;
   final bool isOutgoing;
   final bool isMissed;
   final bool isVideo;
@@ -9,60 +12,55 @@ class CallModel {
   CallModel({
     required this.name,
     required this.time,
-    required this.avatarUrl,
+    required this.avatarAsset,
     this.isOutgoing = true,
     this.isMissed = false,
     this.isVideo = false,
   });
 
-  // Sample data for demonstration
-  static List<CallModel> sampleCalls = [
-    CallModel(
-      name: 'John Doe',
-      time: 'Today, 11:45 AM',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
-      isOutgoing: false,
-      isVideo: true,
-    ),
-    CallModel(
-      name: 'Sarah Smith',
-      time: 'Today, 10:30 AM',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
-      isOutgoing: true,
-      isMissed: true,
-    ),
-    CallModel(
-      name: 'Mike Johnson',
-      time: 'Yesterday, 4:15 PM',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
-      isOutgoing: false,
-      isMissed: true,
-    ),
-    CallModel(
-      name: 'Emily Wilson',
-      time: 'Yesterday, 2:30 PM',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/4.jpg',
-      isOutgoing: true,
-      isVideo: true,
-    ),
-    CallModel(
-      name: 'David Brown',
-      time: '06/23/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
-      isOutgoing: false,
-    ),
-    CallModel(
-      name: 'Jennifer Taylor',
-      time: '06/22/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/6.jpg',
-      isOutgoing: true,
-    ),
-    CallModel(
-      name: 'Family Group',
-      time: '06/21/25',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/7.jpg',
-      isOutgoing: true,
-      isVideo: true,
-    ),
-  ];
+  static List<CallModel> sampleCalls = [];
+
+  static Future<void> loadCalls() async {
+    if (sampleCalls.isNotEmpty) return;
+
+    try {
+      final String jsonString = await rootBundle.loadString(
+        'assets/data/calls.json',
+      );
+      final Map<String, dynamic> jsonData = json.decode(jsonString);
+      final List<dynamic> callsData = jsonData['calls'];
+
+      sampleCalls = callsData
+          .map(
+            (callData) => CallModel(
+              name: callData['name'],
+              time: callData['time'],
+              avatarAsset: callData['avatarAsset'],
+              isOutgoing: callData['isOutgoing'],
+              isMissed: callData['isMissed'],
+              isVideo: callData['isVideo'],
+            ),
+          )
+          .toList();
+    } catch (e) {
+      print('Error loading calls: $e');
+      // Fallback to sample data if JSON loading fails
+      sampleCalls = [
+        CallModel(
+          name: 'John Doe',
+          time: 'Today, 11:45 AM',
+          avatarAsset: 'assets/chats_PP/Ellipse 36.png',
+          isOutgoing: false,
+          isVideo: true,
+        ),
+        CallModel(
+          name: 'Sarah Smith',
+          time: 'Today, 10:30 AM',
+          avatarAsset: 'assets/chats_PP/Ellipse 37.png',
+          isOutgoing: true,
+          isMissed: true,
+        ),
+      ];
+    }
+  }
 }

@@ -48,7 +48,7 @@ class _CallsScreenState extends State<CallsScreen> {
               child: const Text(
                 'Edit',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.green,
                   fontSize: 17,
                   fontWeight: FontWeight.w400,
                 ),
@@ -69,7 +69,7 @@ class _CallsScreenState extends State<CallsScreen> {
           IconButton(
             icon: const Icon(
               CupertinoIcons.phone_badge_plus,
-              color: Colors.blue,
+              color: Colors.green,
               size: 24,
             ),
             onPressed: () {
@@ -102,7 +102,7 @@ class _CallsScreenState extends State<CallsScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         heroTag: "calls_fab",
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         child: const Icon(CupertinoIcons.phone, color: Colors.white),
         onPressed: () {
           // Handle new call

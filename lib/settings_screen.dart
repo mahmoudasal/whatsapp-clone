@@ -63,7 +63,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 _buildSettingItem(
                   icon: CupertinoIcons.lock,
-                  iconColor: Colors.blue,
+                  iconColor: Colors.green,
                   title: 'Privacy',
                   onTap: () {},
                 ),
@@ -75,7 +75,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 _buildSettingItem(
                   icon: CupertinoIcons.arrow_right_arrow_left,
-                  iconColor: Colors.blue,
+                  iconColor: Colors.green,
                   title: 'Data and Storage Usage',
                   onTap: () {},
                 ),
@@ -86,7 +86,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 _buildSettingItem(
                   icon: CupertinoIcons.info,
-                  iconColor: Colors.blue,
+                  iconColor: Colors.green,
                   title: 'Help',
                   onTap: () {},
                 ),
@@ -132,7 +132,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
-          Icon(CupertinoIcons.qrcode, color: Colors.blue[600], size: 28),
+          Icon(CupertinoIcons.qrcode, color: Colors.green[600], size: 28),
         ],
       ),
     );
@@ -149,7 +149,7 @@ class SettingsScreen extends StatelessWidget {
       leading: Container(
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
-          color: iconColor.withOpacity(0.1),
+          color: iconColor.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Icon(icon, color: iconColor, size: 22),
