@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'main_navigation.dart';
-import 'navigation/app_routes_new.dart';
+import 'navigation/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
