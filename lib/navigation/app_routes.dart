@@ -7,6 +7,7 @@ import '../settings_screen.dart';
 import '../chat_detail_screen.dart';
 import '../status_detail_screen.dart';
 import '../call_detail_screen.dart';
+import '../new_chat_screen.dart';
 import '../models/chat_model.dart';
 import '../models/status_model.dart';
 import '../models/call_model.dart';
@@ -21,8 +22,9 @@ class AppRoutes {
   static const String chatDetail = '/chat_detail';
   static const String newChat = '/new_chat';
   static const String statusDetail = '/status_detail';
-  static const String callDetail =
-      '/call_detail'; // Define route generation function
+  static const String callDetail = '/call_detail';
+
+  // Define route generation function
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case home:
@@ -38,6 +40,8 @@ class AppRoutes {
       case chatDetail:
         final chat = routeSettings.arguments as ChatModel;
         return MaterialPageRoute(builder: (_) => ChatDetailScreen(chat: chat));
+      case newChat:
+        return MaterialPageRoute(builder: (_) => const NewChatScreen());
       case statusDetail:
         final status = routeSettings.arguments as StatusModel;
         return MaterialPageRoute(

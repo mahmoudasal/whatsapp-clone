@@ -77,33 +77,45 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       appBar: AppBar(
         backgroundColor: Colors.grey[50],
         elevation: 0,
-        leadingWidth: 80,
+        leadingWidth: 70,
+        centerTitle: false,
         leading: GestureDetector(
           onTap: () {
             Navigator.pop(context);
           },
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(width: 8),
-              const Icon(CupertinoIcons.back, color: Colors.blue, size: 24),
-              const SizedBox(width: 4),
-              Text('Chats', style: TextStyle(color: Colors.blue, fontSize: 17)),
+              const SizedBox(width: 6),
+              const Icon(CupertinoIcons.back, color: Colors.blue, size: 22),
+              const SizedBox(width: 2),
+              Flexible(
+                child: Text(
+                  'Chats',
+                  style: TextStyle(color: Colors.blue, fontSize: 16),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ],
           ),
         ),
         title: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(
               radius: 16,
               backgroundImage: NetworkImage(widget.chat.avatarUrl),
             ),
             const SizedBox(width: 8),
-            Text(
-              widget.chat.name,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+            Flexible(
+              child: Text(
+                widget.chat.name,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],

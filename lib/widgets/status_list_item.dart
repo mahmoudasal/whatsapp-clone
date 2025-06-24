@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../models/status_model.dart';
-import '../navigation/app_routes_new.dart';
+import '../navigation/app_routes.dart';
 
 class StatusListItem extends StatelessWidget {
   final StatusModel status;
@@ -47,7 +47,7 @@ class StatusListItem extends StatelessWidget {
           ? const Icon(CupertinoIcons.volume_mute, color: Colors.grey, size: 20)
           : null,
       onTap: () {
-        NavigationService.navigateTo(AppRoutes.statusDetail, arguments: status);
+        Navigator.pushNamed(context, AppRoutes.statusDetail, arguments: status);
       },
     );
   }

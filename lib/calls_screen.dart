@@ -101,6 +101,7 @@ class _CallsScreenState extends State<CallsScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "calls_fab",
         backgroundColor: Colors.blue,
         child: const Icon(CupertinoIcons.phone, color: Colors.white),
         onPressed: () {

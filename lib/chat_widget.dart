@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'models/chat_model.dart';
-import 'navigation/app_routes_new.dart';
+import 'navigation/app_routes.dart';
 
 class ChatWidget extends StatelessWidget {
   final ChatModel chat;
@@ -83,7 +83,7 @@ class ChatWidget extends StatelessWidget {
           ),
         ),
         onTap: () {
-          NavigationService.navigateTo(AppRoutes.chatDetail, arguments: chat);
+          Navigator.pushNamed(context, AppRoutes.chatDetail, arguments: chat);
         },
       ),
     );

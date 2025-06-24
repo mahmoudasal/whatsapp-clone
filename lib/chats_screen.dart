@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'models/chat_model.dart';
 import 'models/search_history_model.dart';
+import 'navigation/app_routes.dart';
 import 'utils/debouncer.dart';
 import 'widgets/archived_chats_item.dart';
 import 'widgets/broadcast_list_item.dart';
@@ -93,10 +94,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "chats_fab",
         backgroundColor: Colors.blue,
         child: const Icon(CupertinoIcons.pencil, color: Colors.white),
         onPressed: () {
-          // Handle new chat
+          Navigator.pushNamed(context, AppRoutes.newChat);
         },
       ),
     );

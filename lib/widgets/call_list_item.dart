@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../models/call_model.dart';
-import '../navigation/app_routes_new.dart';
+import '../navigation/app_routes.dart';
 
 class CallListItem extends StatelessWidget {
   final CallModel call;
@@ -42,11 +42,11 @@ class CallListItem extends StatelessWidget {
           color: Colors.blue,
         ),
         onPressed: () {
-          NavigationService.navigateTo(AppRoutes.callDetail, arguments: call);
+          Navigator.pushNamed(context, AppRoutes.callDetail, arguments: call);
         },
       ),
       onTap: () {
-        NavigationService.navigateTo(AppRoutes.callDetail, arguments: call);
+        Navigator.pushNamed(context, AppRoutes.callDetail, arguments: call);
       },
     );
   }
