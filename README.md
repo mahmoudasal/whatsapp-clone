@@ -120,6 +120,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p>Developed with ❤️ by Your Name</p>
+  <p>Developed with ❤️ by Mahmoud Asal</p>
   <p>This is a personal project for educational purposes and not affiliated with WhatsApp Inc.</p>
 </div>
